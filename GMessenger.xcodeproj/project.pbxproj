@@ -13,6 +13,10 @@
 		C3B618BC218489270092EDD8 /* GMessenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3B618BA218489270092EDD8 /* GMessenger.xcdatamodeld */; };
 		C3B618BE218489280092EDD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B618BD218489280092EDD8 /* Assets.xcassets */; };
 		C3B618C1218489280092EDD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B618BF218489280092EDD8 /* LaunchScreen.storyboard */; };
+		C3B618D0218498DA0092EDD8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618CF218498DA0092EDD8 /* Message.swift */; };
+		C3B618D221849A6C0092EDD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618D121849A6C0092EDD8 /* User.swift */; };
+		C3B618D421849A820092EDD8 /* AbstractContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618D321849A820092EDD8 /* AbstractContact.swift */; };
+		C3B618D621849CE10092EDD8 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618D521849CE10092EDD8 /* Group.swift */; };
 		D845FC863614A7347564A1F6 /* Pods_GMessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301F33622F0C90B19597F308 /* Pods_GMessenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,10 @@
 		C3B618BD218489280092EDD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3B618C0218489280092EDD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3B618C2218489280092EDD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3B618CF218498DA0092EDD8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C3B618D121849A6C0092EDD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C3B618D321849A820092EDD8 /* AbstractContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractContact.swift; sourceTree = "<group>"; };
+		C3B618D521849CE10092EDD8 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DE1A3522525BC65C34EBDBC7 /* Pods-GMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMessenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-GMessenger/Pods-GMessenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +142,10 @@
 		C3B618CE21848A010092EDD8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				C3B618CF218498DA0092EDD8 /* Message.swift */,
+				C3B618D121849A6C0092EDD8 /* User.swift */,
+				C3B618D321849A820092EDD8 /* AbstractContact.swift */,
+				C3B618D521849CE10092EDD8 /* Group.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -275,8 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3B618D621849CE10092EDD8 /* Group.swift in Sources */,
 				C3B618BC218489270092EDD8 /* GMessenger.xcdatamodeld in Sources */,
+				C3B618D0218498DA0092EDD8 /* Message.swift in Sources */,
+				C3B618D421849A820092EDD8 /* AbstractContact.swift in Sources */,
 				C3B618B6218489270092EDD8 /* ViewController.swift in Sources */,
+				C3B618D221849A6C0092EDD8 /* User.swift in Sources */,
 				C3B618B4218489270092EDD8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
