@@ -7,23 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8498AFC32188969A00CDEF9A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498AFC22188969A00CDEF9A /* CoreDataManager.swift */; };
+		8498AFC62189972C00CDEF9A /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498AFC42189972C00CDEF9A /* Message+CoreDataClass.swift */; };
+		8498AFCA2189984700CDEF9A /* AbstractContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498AFC82189984700CDEF9A /* AbstractContact+CoreDataClass.swift */; };
 		C3B618B4218489270092EDD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618B3218489270092EDD8 /* AppDelegate.swift */; };
 		C3B618B6218489270092EDD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618B5218489270092EDD8 /* ViewController.swift */; };
 		C3B618B9218489270092EDD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B618B7218489270092EDD8 /* Main.storyboard */; };
 		C3B618BC218489270092EDD8 /* GMessenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3B618BA218489270092EDD8 /* GMessenger.xcdatamodeld */; };
 		C3B618BE218489280092EDD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B618BD218489280092EDD8 /* Assets.xcassets */; };
 		C3B618C1218489280092EDD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B618BF218489280092EDD8 /* LaunchScreen.storyboard */; };
-		C3B618D0218498DA0092EDD8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618CF218498DA0092EDD8 /* Message.swift */; };
 		C3B618D221849A6C0092EDD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618D121849A6C0092EDD8 /* User.swift */; };
-		C3B618D421849A820092EDD8 /* AbstractContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618D321849A820092EDD8 /* AbstractContact.swift */; };
 		C3B618D621849CE10092EDD8 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618D521849CE10092EDD8 /* Group.swift */; };
-		C3B618D82184F3300092EDD8 /* MessageSenderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B618D72184F3300092EDD8 /* MessageSenderDelegate.swift */; };
 		D845FC863614A7347564A1F6 /* Pods_GMessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301F33622F0C90B19597F308 /* Pods_GMessenger.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01FA853F1487C3E99838776D /* Pods-GMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMessenger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMessenger/Pods-GMessenger.debug.xcconfig"; sourceTree = "<group>"; };
 		301F33622F0C90B19597F308 /* Pods_GMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8498AFC22188969A00CDEF9A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8498AFC42189972C00CDEF9A /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8498AFC82189984700CDEF9A /* AbstractContact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AbstractContact+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C3B618B0218489270092EDD8 /* GMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B618B3218489270092EDD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B618B5218489270092EDD8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,11 +35,8 @@
 		C3B618BD218489280092EDD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3B618C0218489280092EDD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3B618C2218489280092EDD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3B618CF218498DA0092EDD8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C3B618D121849A6C0092EDD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C3B618D321849A820092EDD8 /* AbstractContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractContact.swift; sourceTree = "<group>"; };
 		C3B618D521849CE10092EDD8 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		C3B618D72184F3300092EDD8 /* MessageSenderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSenderDelegate.swift; sourceTree = "<group>"; };
 		DE1A3522525BC65C34EBDBC7 /* Pods-GMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMessenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-GMessenger/Pods-GMessenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,6 +52,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8498AFBE2188956A00CDEF9A /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				8498AFBF2188958000CDEF9A /* DataBase */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		8498AFBF2188958000CDEF9A /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				8498AFC22188969A00CDEF9A /* CoreDataManager.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		BDCC75630D481CBE789561F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +116,7 @@
 		C3B618C9218489660092EDD8 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				8498AFBE2188956A00CDEF9A /* BusinessLogic */,
 				C3B618B3218489270092EDD8 /* AppDelegate.swift */,
 				C3B618CE21848A010092EDD8 /* Entities */,
 				C3B618CD218489EA0092EDD8 /* Controllers */,
@@ -129,7 +146,6 @@
 		C3B618CC218489DE0092EDD8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				C3B618D72184F3300092EDD8 /* MessageSenderDelegate.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -145,9 +161,9 @@
 		C3B618CE21848A010092EDD8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C3B618CF218498DA0092EDD8 /* Message.swift */,
+				8498AFC82189984700CDEF9A /* AbstractContact+CoreDataClass.swift */,
+				8498AFC42189972C00CDEF9A /* Message+CoreDataClass.swift */,
 				C3B618D121849A6C0092EDD8 /* User.swift */,
-				C3B618D321849A820092EDD8 /* AbstractContact.swift */,
 				C3B618D521849CE10092EDD8 /* Group.swift */,
 			);
 			path = Entities;
@@ -292,12 +308,12 @@
 			files = (
 				C3B618D621849CE10092EDD8 /* Group.swift in Sources */,
 				C3B618BC218489270092EDD8 /* GMessenger.xcdatamodeld in Sources */,
-				C3B618D0218498DA0092EDD8 /* Message.swift in Sources */,
-				C3B618D421849A820092EDD8 /* AbstractContact.swift in Sources */,
 				C3B618B6218489270092EDD8 /* ViewController.swift in Sources */,
+				8498AFC32188969A00CDEF9A /* CoreDataManager.swift in Sources */,
 				C3B618D221849A6C0092EDD8 /* User.swift in Sources */,
 				C3B618B4218489270092EDD8 /* AppDelegate.swift in Sources */,
-				C3B618D82184F3300092EDD8 /* MessageSenderDelegate.swift in Sources */,
+				8498AFCA2189984700CDEF9A /* AbstractContact+CoreDataClass.swift in Sources */,
+				8498AFC62189972C00CDEF9A /* Message+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
