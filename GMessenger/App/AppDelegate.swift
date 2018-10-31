@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+let server = "soalgate.ru"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
