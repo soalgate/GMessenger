@@ -17,12 +17,20 @@ class MockRepository: Repository {
     var messages: [Message] = []
     
     init() {
-        let user1 = User(id: 0, name: "Yoda", jid: "justeryoda@jabber.mipt.ru")
+        let user1 = User(id: 0, name: "Yoda", jid: "yoda@soalgate.ru")
         user1.isAuthorized = true
-        let user2 = User(id: 1, name: "Vader", jid: "justervader@jabber.mipt.ru")
+        let user2 = User(id: 1, name: "Vader", jid: "vader@soalgate.ru")
         
         users.append(user1)
         users.append(user2)
+        
+        let user1Message1 = Message(id: "11f1490a-e115-11e8-9f32-f2801f1b9fd1", senderId: 0, receiverId: 1, text: "Fear is the path to the dark side. Fear leads to anger; anger leads to hate; hate leads to suffering. I sense much fear in you.")
+        let user2Message1 = Message(id: "75a36564-e115-11e8-9f32-f2801f1b9fd1", senderId: 1, receiverId: 0, text: "When I left you I was but the learner. Now I am the master.")
+        
+        user1Message1.isOutcome = true
+        
+        messages.append(user1Message1)
+        messages.append(user2Message1)
     }
     
     func userIdIncrement() {
@@ -35,6 +43,12 @@ class MockRepository: Repository {
     
     func getUsers() -> [User] {
         return users
+    }
+    
+    func getUserById(id: UInt64) -> User? {
+        return users.first(where: { user -> Bool in
+            user.id == id
+        })
     }
     
     func getUserByJID(jid: String) -> User? {
@@ -67,7 +81,8 @@ class MockRepository: Repository {
     }
     
     func saveMessage(message: Message) {
-        let msg = Message(id: messageId, senderId: message.senderId, receiverId: message.receiverId, text: message.text)
+        let msg = message
+        msg.id = messageId
         messages.append(msg)
         messageIdIncrement()
     }

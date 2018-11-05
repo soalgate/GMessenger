@@ -12,7 +12,7 @@
         <!--Chat Controller-->
         <scene sceneID="oN8-5D-sFj">
             <objects>
-                <viewController id="XEA-jA-z1y" customClass="ChatController" customModule="Messenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XEA-jA-z1y" customClass="ChatController" customModule="GMessenger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3iJ-vn-IVJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="776"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IncomeMessageTableCellId" id="ojI-8B-tUW" customClass="IncomeMessageTableCell" customModule="Messenger" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IncomeMessageTableCellId" id="ojI-8B-tUW" customClass="IncomeMessageTableCell" customModule="GMessenger" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ojI-8B-tUW" id="fxs-HJ-fc2">
@@ -72,7 +72,7 @@
                                             <outlet property="timeLabel" destination="oaQ-7O-NGP" id="emJ-5G-Wm7"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OutcomeMessageTableCellId" id="Oil-4B-iaq" customClass="OutcomeMessageTableCell" customModule="Messenger" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OutcomeMessageTableCellId" id="Oil-4B-iaq" customClass="OutcomeMessageTableCell" customModule="GMessenger" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oil-4B-iaq" id="8tK-47-Xq4">
@@ -80,7 +80,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AeF-uV-WSB">
-                                                    <rect key="frame" x="219" y="5" width="141" height="34"/>
+                                                    <rect key="frame" x="258" y="5" width="141" height="34"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi I'm well!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apY-Pu-e36">
                                                             <rect key="frame" x="10" y="6" width="82" height="22"/>
@@ -185,6 +185,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomConstraint" destination="yft-R2-0r7" id="cxt-Gc-p8e"/>
+                        <outlet property="messageField" destination="Wua-Tw-v6Q" id="qnh-1x-6FC"/>
                         <outlet property="tableView" destination="XIZ-vt-56O" id="xnW-zH-jHc"/>
                     </connections>
                 </viewController>
@@ -194,6 +195,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="send" width="127" height="127"/>
+        <image name="send" width="63" height="63"/>
     </resources>
 </document>

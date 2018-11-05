@@ -4,15 +4,55 @@ class ChatController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView?
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint?
+    @IBOutlet weak var messageField: UITextField!
+    
+    let stream = StreamController(jid: "yoda@soalgate.ru", password: "(8bS78QGg78*Gj^_")
+    
+    let repository: Repository = MockRepository()
+    var messages: [Message] = []
     
     @IBAction func onSend(_ sender: Any) {
+        guard
+            let text = messageField.text
+        else {
+            print("---Text is empty")
+            return
+        }
         
+        let receiver: User = repository.getUserByJID(jid: "vader@soalgate.ru")
+                             ?? User(name: "vader@soalgate.ru", jid: "vader@soalgate.ru")
+        
+        guard
+            let sender = repository.getCurrentUser()
+        else {
+            return
+        }
+
+        let msg = Message(senderId: sender.id, receiverId: receiver.id, text: text)
+        msg.isOutcome = true
+        
+        stream.sendMessage(message: msg)
+        
+        messageField.text = ""
+        
+        NotificationCenter.default.post(name: Notification.Name("New message"), object: nil, userInfo: ["message" : msg])
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.delegate = self
         tableView?.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChat(_:)), name: Notification.Name(rawValue: "New message"), object: nil)
+        
+        messages = repository.getMessages()
+    }
+    
+    @objc func updateChat(_ notification: NSNotification) {
+        let message = notification.userInfo?["message"] as! Message
+        repository.saveMessage(message: message)
+        messages = repository.getMessages()
+        tableView?.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +68,9 @@ class ChatController: UIViewController {
     }
     
     func configureView() {
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor.mainBlue
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        statusBarView.backgroundColor = Style.Color.mainBlueColor
+        view.addSubview(statusBarView)
         observeKeyboard()
     }
     
@@ -73,25 +115,26 @@ class ChatController: UIViewController {
 extension ChatController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "IncomeMessageTableCellId") as? IncomeMessageTableCell else {
-                return UITableViewCell()
-            }
-            cell.configure(message: "Lorem", time: "10:39")
-            return cell
-        }
-        if indexPath.row == 1 {
+        
+        let message = messages[indexPath.row]
+    
+        if message.isOutcome {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "OutcomeMessageTableCellId") as? OutcomeMessageTableCell else {
                 return UITableViewCell()
             }
-            cell.configure(message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", time: "10:40")
+            cell.configure(message: message, time: "10:39")
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "IncomeMessageTableCellId") as? IncomeMessageTableCell else {
+                return UITableViewCell()
+            }
+            cell.configure(message: message, time: "10:40")
             return cell
         }
-        return UITableViewCell()
     }
     
 }

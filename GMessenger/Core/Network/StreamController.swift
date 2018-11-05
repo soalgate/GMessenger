@@ -15,8 +15,6 @@ class StreamController: NSObject {
     
     private var password: String!
     private let stream = XMPPStream()
-    
-    var messages: [Message] = []
    
     init(jid: String, password: String, queue: DispatchQueue = DispatchQueue.main) {
         
@@ -36,19 +34,17 @@ class StreamController: NSObject {
 
 extension StreamController: XMPPStreamDelegate {
     
-    func sendMessage(user: User, text: String) {
-        let xmppMessage = XMPPMessage(type: "chat", to: XMPPJID(string: user.jid))
-        xmppMessage.addBody(text)
+    func sendMessage(message: Message) {
         
         guard
-            let senderId = repository.getCurrentUser()?.id
+            let receiver = repository.getUserById(id: message.receiverId)
         else {
-            print("---You is not authorized")
             return
         }
         
-        let message = Message(senderId: senderId, receiverId: user.id, text: text)
-        repository.saveMessage(message: message)
+        let xmppMessage = XMPPMessage(type: "chat", to: XMPPJID(string: receiver.jid))
+        xmppMessage.addBody(message.text)
+        
         stream.send(xmppMessage)
     }
     
@@ -74,14 +70,8 @@ extension StreamController: XMPPStreamDelegate {
     
     func xmppStream(_ sender: XMPPStream, didReceive message: XMPPMessage) {
         
-        guard
-            let jid = sender.myJID?.full,
-            let user = repository.getUserByJID(jid: jid),
-            let text = message.body
-        else {
-            return
-        }
-        let msg = Message(senderId: user.id, receiverId: 0, text: text)
-        repository.saveMessage(message: msg)
+        let msg = Message(senderId: 1, receiverId: 0, text: message.body!)
+        
+        NotificationCenter.default.post(name: Notification.Name("New message"), object: nil, userInfo: ["message" : msg])
     }
 }

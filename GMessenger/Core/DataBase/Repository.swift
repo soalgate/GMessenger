@@ -11,6 +11,7 @@ import Foundation
 protocol Repository {
     
     func getUsers() -> [User]
+    func getUserById(id: UInt64) -> User?
     func getUserByJID(jid: String) -> User?
     func getCurrentUser() -> User?
     func getMessages() -> [Message]

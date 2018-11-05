@@ -6,9 +6,9 @@ class IncomeMessageTableCell: UITableViewCell {
     @IBOutlet private weak var messageTextLabel: UILabel?
     @IBOutlet private weak var timeLabel: UILabel?
     
-    func configure(message: String, time: String) {
+    func configure(message: Message, time: String) {
         configureMessageView()
-        messageTextLabel?.text = message
+        messageTextLabel?.text = message.text
         timeLabel?.text = time
     }
     
