@@ -8,9 +8,17 @@
 
 import Foundation
 
-struct Message {
+class Message {
     var id: String
     var senderId: UInt64
     var receiverId: UInt64
     var text: String
+    var isOutcome: Bool = false
+    
+    init(id: String = "", senderId: UInt64, receiverId: UInt64, text: String) {
+        self.id = id
+        self.senderId = senderId
+        self.receiverId = receiverId
+        self.text = text
+    }
 }
