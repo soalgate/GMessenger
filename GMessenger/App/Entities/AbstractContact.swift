@@ -13,7 +13,7 @@ import CoreData
 @objc(AbstractContact)
 public class AbstractContact: NSManagedObject {
     
-    @NSManaged public var name: String?
+    @NSManaged public var name: String
     @NSManaged public var id: Int64
     @NSManaged public var users: [Int64]?
     @NSManaged public var messages: [String]?

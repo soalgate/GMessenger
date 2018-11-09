@@ -10,12 +10,12 @@ import Foundation
 
 protocol Repository {
     
-    func getUsers() -> [User]
-    func getUserById(id: UInt64) -> User?
-    func getUserByJID(jid: String) -> User?
-    func getCurrentUser() -> User?
-    func getMessages() -> [Message]
-    func getMessage(id: String) -> Message?
-    func saveUser(user: User) -> User
-    func saveMessage(message: Message)
+    func getUsers() -> Result<[User]>
+    func getUserById(id: Int64) -> Result<User?>
+    func getUserByJID(jid: String) -> Result<User?>
+    func getCurrentUser() -> Result<User?>
+    func getMessages() -> Result<[Message]>
+    func getMessage(id: String) -> Result<Message?>
+    func saveUser(user: User) -> Result<User>
+    func saveMessage(message: Message) -> Result<Message>
 }

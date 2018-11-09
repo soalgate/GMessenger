@@ -35,11 +35,11 @@ class StreamController: NSObject {
 extension StreamController: XMPPStreamDelegate {
     
     func sendMessage(message: Message) {
-        
         guard
-            let receiver = repository.getUserById(id: message.receiverId)
-        else {
-            return
+            case .success(let value) = repository.getUserById(id: message.receiverId),
+            let receiver = value
+            else {
+                return
         }
         
         let xmppMessage = XMPPMessage(type: "chat", to: XMPPJID(string: receiver.jid))
