@@ -7,14 +7,29 @@
 //
 
 import Foundation
+import CoreData
 
+@objc(User)
 class User: AbstractContact {
-    var jid: String = ""
-    var isAuthorized: Bool = false
-    var groups: [UInt64] = []
     
-    init(id: UInt64 = 0, name: String, jid: String) {
-        super.init(id: id, name: name)
+    @NSManaged public var jid: String
+    @NSManaged public var isAuthorized: Bool
+    @NSManaged public var groups: [Int64]?
+    
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
+        return NSFetchRequest<User>(entityName: "User")
+    }
+    convenience init() {
+        // Описание сущности
+        let entity = CoreDataManager.shared.entityForName(entityName: "User")
+        
+        // Создание нового объекта
+        self.init(entity: entity, insertInto: CoreDataManager.shared.context)
+    }
+    
+    convenience init(id: Int64 = 0, name: String, jid: String) {
+        self.init()
+        self.name = name
         self.jid = jid
     }
 }

@@ -18,13 +18,29 @@ class ChatController: UIViewController {
             print("---Text is empty")
             return
         }
+        var receiverResult: User?
         
-        let receiver: User = repository.getUserByJID(jid: "vader@soalgate.ru")
-                             ?? User(name: "vader@soalgate.ru", jid: "vader@soalgate.ru")
+        let resultJid = repository.getUserByJID(jid: "vader@soalgate.ru")
         
-        guard
-            let sender = repository.getCurrentUser()
-        else {
+        switch resultJid {
+        case .success(let result):
+            receiverResult = result
+        case .failure(let error):
+            print(error.localizedDescription)
+            return
+        }
+        
+        if receiverResult == nil {
+            receiverResult = User(name: "vader@soalgate.ru", jid: "vader@soalgate.ru")
+        }
+        guard let receiver = receiverResult else {
+            return
+        }
+        
+        let senderResult = repository.getCurrentUser()
+        
+        guard case .success(let senderValue) = senderResult,
+        let sender = senderValue else {
             return
         }
 
@@ -45,13 +61,19 @@ class ChatController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateChat(_:)), name: Notification.Name(rawValue: "New message"), object: nil)
         
-        messages = repository.getMessages()
+        guard case .success(let value) = repository.getMessages() else {
+            return
+        }
+        messages = value
     }
     
     @objc func updateChat(_ notification: NSNotification) {
         let message = notification.userInfo?["message"] as! Message
-        repository.saveMessage(message: message)
-        messages = repository.getMessages()
+        _ = repository.saveMessage(message: message)        
+        guard case .success(let newMessages) = repository.getMessages() else {
+            return
+        }
+        messages = newMessages
         tableView?.reloadData()
     }
     

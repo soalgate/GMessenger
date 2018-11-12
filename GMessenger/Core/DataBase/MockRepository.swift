@@ -10,7 +10,7 @@ import Foundation
 
 class MockRepository: Repository {
     
-    var userId: UInt64 = 1
+    var userId: Int64 = 1
     var messageId: String = "11"
     
     var users: [User] = []
@@ -41,49 +41,50 @@ class MockRepository: Repository {
         messageId += "1"
     }
     
-    func getUsers() -> [User] {
-        return users
+    func getUsers() -> Result<[User]> {
+        return .success(users)
     }
     
-    func getUserById(id: UInt64) -> User? {
-        return users.first(where: { user -> Bool in
+    func getUserById(id: Int64) -> Result<User?> {
+        return .success(users.first(where: { user -> Bool in
             user.id == id
-        })
+        }))
     }
     
-    func getUserByJID(jid: String) -> User? {
-        return users.first(where: { user -> Bool in
+    func getUserByJID(jid: String) -> Result<User?> {
+        return .success(users.first(where: { user -> Bool in
             user.jid == jid
-        })
+        }))
     }
     
-    func getCurrentUser() -> User? {
-        return users.first(where: { user -> Bool in
+    func getCurrentUser() -> Result<User?> {
+        return .success(users.first(where: { user -> Bool in
             user.isAuthorized == true
-        })
+        }))
     }
     
-    func getMessages() -> [Message] {
-        return messages
+    func getMessages() -> Result<[Message]> {
+        return .success(messages)
     }
     
-    func getMessage(id: String) -> Message? {
-        return messages.first(where: { message -> Bool in
+    func getMessage(id: String) -> Result<Message?> {
+        return .success(messages.first(where: { message -> Bool in
             message.id == id
-        })
+        }))
     }
     
-    func saveUser(user: User) -> User {
+    func saveUser(user: User) -> Result<User> {
         let usr = User(id: userId, name: user.name, jid: user.jid)
         users.append(usr)
         userIdIncrement()
-        return usr
+        return .success(usr)
     }
     
-    func saveMessage(message: Message) {
+    func saveMessage(message: Message) -> Result<Message> {
         let msg = message
         msg.id = messageId
         messages.append(msg)
         messageIdIncrement()
+        return .success(msg)
     }
 }
