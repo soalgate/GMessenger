@@ -29,6 +29,7 @@ class User: AbstractContact {
     
     convenience init(id: Int64 = 0, name: String, jid: String) {
         self.init()
+        self.id = id
         self.name = name
         self.jid = jid
     }

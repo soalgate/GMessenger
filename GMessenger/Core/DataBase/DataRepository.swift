@@ -46,8 +46,8 @@ class DataRepository: Repository {
         }
     }
     
-    func getCurrentUser() -> Result<User?> {
-        let predicate = NSPredicate(format: "%K = %@", "isAuthorized", true)
+    func getCurrentUser() -> Result<User?> {        
+        let predicate = NSPredicate(format: "isAuthorized == %@", NSNumber(value: true))
         do {
             let result = try dataBase.getEntitys(entityType: User.self, with: predicate)
             return .success((result.count) == 1 ? result[0] : nil) // Если будет несколько пользователей :
