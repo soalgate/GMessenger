@@ -8,7 +8,7 @@ class ChatController: UIViewController {
     
     let stream = StreamController(jid: "yoda@soalgate.ru", password: "(8bS78QGg78*Gj^_")
     
-    let repository: Repository = MockRepository()
+    let repository: Repository = DataRepository()
     var messages: [Message] = []
     
     @IBAction func onSend(_ sender: Any) {
